@@ -12,3 +12,12 @@ $(document).ready(function () {
         pause: 5000 // Pause Between Each Slide Change
     });
 });
+
+$('li>img')
+    .wrap('<span style="display:inline-block"></span>')
+    .css('display', 'block')
+    .parent()
+    .zoom({
+        magnify: 1.3
+    });
+// To use zoom with img elements, they will need to be wrapped with another element.
