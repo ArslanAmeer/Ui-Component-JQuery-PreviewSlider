@@ -7,6 +7,7 @@ const autoPrefixLess = require("less-plugin-autoprefix");
 const lessGlob = require("less-plugin-glob");
 const cssMin = require("gulp-clean-css");
 const jsMin = require("gulp-uglify-es").default;
+const concat = require("gulp-concat");
 const htmlMin = require("gulp-htmlmin");
 const sourceMap = require("gulp-sourcemaps");
 const imageMin = require("gulp-imagemin");
@@ -35,12 +36,12 @@ gulp.task("Html-Minify", function () {
 // JavaScript Minify task
 
 gulp.task("Js-Minify", function () {
-    gulp.src("src/assets/js/*.js")
-        .pipe(rename("scripts.min.js"))
+    gulp.src(['src/assets/js/jquery.zoom.min.js', 'src/assets/js/lightslider.min.js'])
+        .pipe(concat('imagepreviewer.min.js'))
         .pipe(sourceMap.init())
         .pipe(jsMin())
         .pipe(sourceMap.write("/maps"))
-        .pipe(gulp.dest("dist/assets/js/"))
+        .pipe(gulp.dest("dist/assets/js"))
         .pipe(browserSync.stream());
 });
 
@@ -48,9 +49,15 @@ gulp.task("Js-Minify", function () {
 
 gulp.task("Css-Minify", function () {
     gulp.src("src/assets/css/*.css")
-        .pipe(rename("styless.min.css"))
+        .pipe(concat('imagepreviewer.min.css'))
         .pipe(sourceMap.init())
-        .pipe(cssMin())
+        .pipe(cssMin({
+            level: {
+                1: {
+                    specialComments: 0
+                }
+            }
+        }))
         .pipe(sourceMap.write("/maps"))
         .pipe(gulp.dest("dist/assets/css/"))
         .pipe(browserSync.stream());
