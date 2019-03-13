@@ -1,0 +1,28 @@
+{
+  "name": "ui-component-jquery-previewslider",
+  "version": "1.0.0",
+  "description": "A Product Preview Slider with Zoom Effect.",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Arslan Ameer",
+  "license": "ISC",
+  "dependencies": {
+    "npm-check-updates": "^2.14.0"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.23.6",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.9.2",
+    "gulp-gh-pages": "^0.5.4",
+    "gulp-htmlmin": "^4.0.0",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-less": "^3.5.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-uglify-es": "^1.0.1",
+    "less-plugin-autoprefix": "^1.5.1",
+    "less-plugin-glob": "^2.0.1"
+  }
+}
